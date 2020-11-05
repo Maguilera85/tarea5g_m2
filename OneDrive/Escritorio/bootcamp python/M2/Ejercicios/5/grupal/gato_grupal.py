@@ -49,8 +49,8 @@ def game():
     turn = 'X'
     count = 0  
     
-    for _i in range(10):      
-        if turn == 'X':
+    for _i in range(9):      
+        if turn == 'X': # turno de jugador
             printBoard(theBoard)
             print("Es tu turno," + turn + ".¿Dónde deseas mover?")
             move = input()  
@@ -61,14 +61,14 @@ def game():
             else:
                 print("\nEsta posición ya se encuentra ocupada\nSelecciona una opción vacía")
                 continue
-        else:
+        else: #turno de la maquina
             print("Dame un momento, necesito pensar...")
-            t_espera = random.randint(3, 6)
-            time.sleep(t_espera)
+            t_espera = random.randint(3, 6) #valor ramdom para asignar a time.sleep 
+            time.sleep(t_espera) # entero transformado a segundos
             move = 1
             move2 = str(move)
             while theBoard[move2] != ' ':
-                move = move + 1
+                move = random.randint(1, 9)
                 move2 = str(move)
             theBoard[move2] = 'O'    
             count += 1
